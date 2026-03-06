@@ -23,33 +23,33 @@
     const { useState } = React;
 
     const EXERCISES = [
-      { id: "fill", title: "Completa las frases", icon: "\u270F\uFE0F", color: "#F9A825", bg: "#FFF9C4" },
-      { id: "vf", title: "\u00BFVerdadero o Falso?", icon: "\uD83E\uDD14", color: "#1976D2", bg: "#BBDEFB" },
-      { id: "match", title: "\u00BFDe qui\u00E9n es?", icon: "\uD83D\uDD17", color: "#E91E63", bg: "#F8BBD0" },
-      { id: "parts", title: "\u00BFQu\u00E9 parte es?", icon: "\uD83E\uDDE9", color: "#7B1FA2", bg: "#E1BEE7" },
-      { id: "questions", title: "Preguntas cortas", icon: "\uD83D\uDCAC", color: "#E65100", bg: "#FFE0B2" },
+      { id: "fill", title: "Completa las frases", icon: "✏️", color: "#F9A825", bg: "#FFF9C4" },
+      { id: "vf", title: "¿Verdadero o Falso?", icon: "🤔", color: "#1976D2", bg: "#BBDEFB" },
+      { id: "match", title: "¿De quién es?", icon: "🔗", color: "#E91E63", bg: "#F8BBD0" },
+      { id: "parts", title: "¿Qué parte es?", icon: "🧩", color: "#7B1FA2", bg: "#E1BEE7" },
+      { id: "questions", title: "Preguntas cortas", icon: "💬", color: "#E65100", bg: "#FFE0B2" },
     ];
 
-    const FILL_WORDS = ["reproductor", "adolescencia", "sexual", "espermatozoides", "\u00F3vulos"];
+    const FILL_WORDS = ["reproductor", "adolescencia", "sexual", "espermatozoides", "óvulos"];
     const FILL_SENTENCES = [
       { text: "El aparato ___ es diferente en hombres y mujeres.", answer: "reproductor" },
-      { text: "Los \u00F3rganos reproductores maduran en la ___.", answer: "adolescencia" },
-      { text: "La reproducci\u00F3n humana es una reproducci\u00F3n ___.", answer: "sexual" },
-      { text: "Las c\u00E9lulas sexuales masculinas se llaman ___.", answer: "espermatozoides" },
-      { text: "Las c\u00E9lulas sexuales femeninas se llaman ___.", answer: "\u00F3vulos" },
+      { text: "Los órganos reproductores maduran en la ___.", answer: "adolescencia" },
+      { text: "La reproducción humana es una reproducción ___.", answer: "sexual" },
+      { text: "Las células sexuales masculinas se llaman ___.", answer: "espermatozoides" },
+      { text: "Las células sexuales femeninas se llaman ___.", answer: "óvulos" },
     ];
 
     const VF_ITEMS = [
       { text: "El aparato reproductor es igual en hombres y mujeres.", answer: false },
-      { text: "La reproducci\u00F3n es una funci\u00F3n vital.", answer: true },
-      { text: "El aparato masculino produce \u00F3vulos.", answer: false },
-      { text: "Si ninguna especie se reprodujera, desaparecer\u00EDa.", answer: true },
+      { text: "La reproducción es una función vital.", answer: true },
+      { text: "El aparato masculino produce óvulos.", answer: false },
+      { text: "Si ninguna especie se reprodujera, desaparecería.", answer: true },
       { text: "El aparato femenino sirve para gestar al nuevo ser.", answer: true },
     ];
 
     const MATCH_ITEMS = [
-      { organ: "Test\u00EDculos", answer: "masculino" },
-      { organ: "\u00DAtero", answer: "femenino" },
+      { organ: "Testículos", answer: "masculino" },
+      { organ: "Útero", answer: "femenino" },
       { organ: "Pene", answer: "masculino" },
       { organ: "Ovarios", answer: "femenino" },
       { organ: "Vagina", answer: "femenino" },
@@ -57,22 +57,22 @@
     ];
 
     const PARTS_FEM = [
-      { hint: "Producen los \u00F3vulos", answer: "ovarios" },
-      { hint: "Donde crece el beb\u00E9", answer: "\u00FAtero" },
-      { hint: "Comunica el \u00FAtero con el exterior", answer: "vagina" },
+      { hint: "Producen los óvulos", answer: "ovarios" },
+      { hint: "Donde crece el bebé", answer: "útero" },
+      { hint: "Comunica el útero con el exterior", answer: "vagina" },
       { hint: "Parte externa", answer: "vulva" },
     ];
     const PARTS_MASC = [
-      { hint: "Producen los espermatozoides", answer: "test\u00EDculos" },
+      { hint: "Producen los espermatozoides", answer: "testículos" },
       { hint: "Conduce la orina y los espermatozoides", answer: "uretra" },
-      { hint: "\u00D3rgano externo", answer: "pene" },
+      { hint: "Órgano externo", answer: "pene" },
     ];
 
     const SHORT_QUESTIONS = [
-      { q: "\u00BFQu\u00E9 es el aparato reproductor?", hint: "conjunto de \u00F3rganos encargado de la reproducci\u00F3n" },
-      { q: "\u00BFPor qu\u00E9 es importante la reproducci\u00F3n para las especies?", hint: "sin ella la especie desaparecer\u00EDa" },
-      { q: "\u00BFCu\u00E1ndo maduran los \u00F3rganos reproductores?", hint: "en la adolescencia" },
-      { q: "\u00BFQu\u00E9 necesita la reproducci\u00F3n sexual humana?", hint: "una c\u00E9lula sexual masculina y una femenina" },
+      { q: "¿Qué es el aparato reproductor?", hint: "conjunto de órganos encargado de la reproducción" },
+      { q: "¿Por qué es importante la reproducción para las especies?", hint: "sin ella la especie desaparecería" },
+      { q: "¿Cuándo maduran los órganos reproductores?", hint: "en la adolescencia" },
+      { q: "¿Qué necesita la reproducción sexual humana?", hint: "una célula sexual masculina y una femenina" },
     ];
 
     function Confetti({ show }) {
@@ -127,7 +127,7 @@
 
       return (
         <div>
-          <p style={{ fontSize:15, color:"#555", marginBottom:16, lineHeight:1.5 }}>Toca una palabra y se colocar\u00E1 en el primer hueco vac\u00EDo. Toca un hueco para quitar la palabra.</p>
+          <p style={{ fontSize:15, color:"#555", marginBottom:16, lineHeight:1.5 }}>Toca una palabra y se colocará en el primer hueco vacío. Toca un hueco para quitar la palabra.</p>
           <div style={{ display:"flex", flexWrap:"wrap", gap:8, marginBottom:20, justifyContent:"center" }}>
             {available.map(w => (
               <button key={w} onClick={() => { const fe = answers.findIndex(a => a===null); if(fe!==-1) handleDrop(fe, w); }}
@@ -149,20 +149,20 @@
                   <span onClick={() => handleRemove(i)} style={{ display:"inline-block", minWidth:120, padding:"4px 12px", borderRadius:8,
                     backgroundColor: answers[i]?"#FFF9C4":"#fff", border: answers[i]?"2px solid #F9A825":"2px dashed #ccc",
                     fontWeight: answers[i]?700:400, color: answers[i]?"#5D4037":"#bbb", textAlign:"center", cursor: answers[i]?"pointer":"default" }}>
-                    {answers[i] || "\u00B7\u00B7\u00B7"}
+                    {answers[i] || "···"}
                   </span>
                   <span>{parts[1]}</span>
-                  {ic && <span style={{marginLeft:4}}>\u2705</span>}
-                  {iw && <span style={{marginLeft:4}}>\u274C</span>}
+                  {ic && <span style={{marginLeft:4}}>✅</span>}
+                  {iw && <span style={{marginLeft:4}}>❌</span>}
                 </div>
               );
             })}
           </div>
           <style>{`@keyframes shakeAnim { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }`}</style>
           <div style={{ marginTop:20, textAlign:"center" }}>
-            {!results && <button onClick={check} disabled={!allFilled} style={{ padding:"12px 32px", fontSize:16, fontWeight:700, borderRadius:24, border:"none", backgroundColor: allFilled?"#F9A825":"#ccc", color: allFilled?"#fff":"#999", cursor: allFilled?"pointer":"default", boxShadow: allFilled?"0 4px 12px rgba(249,168,37,0.4)":"none" }}>\u00A1Comprobar!</button>}
-            {results && !allCorrect && <div><p style={{ color:"#E65100", fontWeight:600, marginBottom:8 }}>\u00A1Casi! Hay alguna que no est\u00E1 bien.</p><button onClick={retry} style={{ padding:"12px 32px", fontSize:16, fontWeight:700, borderRadius:24, border:"none", backgroundColor:"#F9A825", color:"#fff", cursor:"pointer" }}>Reintentar</button></div>}
-            {allCorrect && <p style={{ color:"#388E3C", fontWeight:700, fontSize:20 }}>\uD83C\uDF89 \u00A1Perfecto! \u00A1Todo correcto!</p>}
+            {!results && <button onClick={check} disabled={!allFilled} style={{ padding:"12px 32px", fontSize:16, fontWeight:700, borderRadius:24, border:"none", backgroundColor: allFilled?"#F9A825":"#ccc", color: allFilled?"#fff":"#999", cursor: allFilled?"pointer":"default", boxShadow: allFilled?"0 4px 12px rgba(249,168,37,0.4)":"none" }}>¡Comprobar!</button>}
+            {results && !allCorrect && <div><p style={{ color:"#E65100", fontWeight:600, marginBottom:8 }}>¡Casi! Hay alguna que no está bien.</p><button onClick={retry} style={{ padding:"12px 32px", fontSize:16, fontWeight:700, borderRadius:24, border:"none", backgroundColor:"#F9A825", color:"#fff", cursor:"pointer" }}>Reintentar</button></div>}
+            {allCorrect && <p style={{ color:"#388E3C", fontWeight:700, fontSize:20 }}>🎉 ¡Perfecto! ¡Todo correcto!</p>}
           </div>
         </div>
       );
@@ -189,7 +189,7 @@
                       border:answers[i]===val?`3px solid ${val?"#388E3C":"#D32F2F"}`:"3px solid #ddd",
                       backgroundColor:answers[i]===val?(val?"#C8E6C9":"#FFCDD2"):"#fff",
                       color:answers[i]===val?(val?"#2E7D32":"#C62828"):"#666",cursor:results?"default":"pointer"}}>
-                      {val?"VERDADERO \u2713":"FALSO \u2717"}
+                      {val?"VERDADERO ✓":"FALSO ✗"}
                     </button>
                   ))}
                 </div>
@@ -197,9 +197,9 @@
             ))}
           </div>
           <div style={{marginTop:20,textAlign:"center"}}>
-            {!results && <button onClick={check} disabled={!allAns} style={{padding:"12px 32px",fontSize:16,fontWeight:700,borderRadius:24,border:"none",backgroundColor:allAns?"#1976D2":"#ccc",color:"#fff",cursor:allAns?"pointer":"default",boxShadow:allAns?"0 4px 12px rgba(25,118,210,0.4)":"none"}}>\u00A1Comprobar!</button>}
-            {results&&!allOk && <div><p style={{color:"#E65100",fontWeight:600,marginBottom:8}}>\u00A1Revisa las que est\u00E1n en rojo!</p><button onClick={retry} style={{padding:"12px 32px",fontSize:16,fontWeight:700,borderRadius:24,border:"none",backgroundColor:"#1976D2",color:"#fff",cursor:"pointer"}}>Reintentar</button></div>}
-            {allOk && <p style={{color:"#388E3C",fontWeight:700,fontSize:20}}>\uD83C\uDF89 \u00A1Genial! \u00A1Todo bien!</p>}
+            {!results && <button onClick={check} disabled={!allAns} style={{padding:"12px 32px",fontSize:16,fontWeight:700,borderRadius:24,border:"none",backgroundColor:allAns?"#1976D2":"#ccc",color:"#fff",cursor:allAns?"pointer":"default",boxShadow:allAns?"0 4px 12px rgba(25,118,210,0.4)":"none"}}>¡Comprobar!</button>}
+            {results&&!allOk && <div><p style={{color:"#E65100",fontWeight:600,marginBottom:8}}>¡Revisa las que están en rojo!</p><button onClick={retry} style={{padding:"12px 32px",fontSize:16,fontWeight:700,borderRadius:24,border:"none",backgroundColor:"#1976D2",color:"#fff",cursor:"pointer"}}>Reintentar</button></div>}
+            {allOk && <p style={{color:"#388E3C",fontWeight:700,fontSize:20}}>🎉 ¡Genial! ¡Todo bien!</p>}
           </div>
         </div>
       );
@@ -215,7 +215,7 @@
       const allOk = results && Object.values(results).every(Boolean);
       return (
         <div>
-          <p style={{fontSize:15,color:"#555",marginBottom:16}}>Para cada \u00F3rgano, elige si pertenece al aparato femenino o masculino.</p>
+          <p style={{fontSize:15,color:"#555",marginBottom:16}}>Para cada órgano, elige si pertenece al aparato femenino o masculino.</p>
           <div style={{display:"flex",flexDirection:"column",gap:10}}>
             {MATCH_ITEMS.map(m => (
               <div key={m.organ} style={{display:"flex",alignItems:"center",gap:8,padding:"10px 12px",borderRadius:12,
@@ -228,7 +228,7 @@
                       border:answers[m.organ]===val?`3px solid ${val==="femenino"?"#E91E63":"#1976D2"}`:"3px solid #ddd",
                       backgroundColor:answers[m.organ]===val?(val==="femenino"?"#F8BBD0":"#BBDEFB"):"#fff",
                       color:answers[m.organ]===val?(val==="femenino"?"#880E4F":"#0D47A1"):"#888",cursor:results?"default":"pointer"}}>
-                      {val==="femenino"?"\u2640 Femenino":"\u2642 Masculino"}
+                      {val==="femenino"?"♀ Femenino":"♂ Masculino"}
                     </button>
                   ))}
                 </div>
@@ -236,9 +236,9 @@
             ))}
           </div>
           <div style={{marginTop:20,textAlign:"center"}}>
-            {!results && <button onClick={check} disabled={!allAns} style={{padding:"12px 32px",fontSize:16,fontWeight:700,borderRadius:24,border:"none",backgroundColor:allAns?"#E91E63":"#ccc",color:"#fff",cursor:allAns?"pointer":"default",boxShadow:allAns?"0 4px 12px rgba(233,30,99,0.4)":"none"}}>\u00A1Comprobar!</button>}
-            {results&&!allOk && <div><p style={{color:"#E65100",fontWeight:600,marginBottom:8}}>\u00A1Revisa las rojas!</p><button onClick={retry} style={{padding:"12px 32px",fontSize:16,fontWeight:700,borderRadius:24,border:"none",backgroundColor:"#E91E63",color:"#fff",cursor:"pointer"}}>Reintentar</button></div>}
-            {allOk && <p style={{color:"#388E3C",fontWeight:700,fontSize:20}}>\uD83C\uDF89 \u00A1Muy bien! \u00A1Eres una crack!</p>}
+            {!results && <button onClick={check} disabled={!allAns} style={{padding:"12px 32px",fontSize:16,fontWeight:700,borderRadius:24,border:"none",backgroundColor:allAns?"#E91E63":"#ccc",color:"#fff",cursor:allAns?"pointer":"default",boxShadow:allAns?"0 4px 12px rgba(233,30,99,0.4)":"none"}}>¡Comprobar!</button>}
+            {results&&!allOk && <div><p style={{color:"#E65100",fontWeight:600,marginBottom:8}}>¡Revisa las rojas!</p><button onClick={retry} style={{padding:"12px 32px",fontSize:16,fontWeight:700,borderRadius:24,border:"none",backgroundColor:"#E91E63",color:"#fff",cursor:"pointer"}}>Reintentar</button></div>}
+            {allOk && <p style={{color:"#388E3C",fontWeight:700,fontSize:20}}>🎉 ¡Muy bien! ¡Eres una crack!</p>}
           </div>
         </div>
       );
@@ -248,41 +248,41 @@
       const allParts = [...PARTS_FEM.map(p=>({...p,type:"fem"})), ...PARTS_MASC.map(p=>({...p,type:"masc"}))];
       const [answers, setAnswers] = useState(Array(allParts.length).fill(""));
       const [results, setResults] = useState(null);
-      const normalize = s => s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").trim();
+      const normalize = s => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").trim();
       const check = () => { const res=answers.map((a,i)=>normalize(a)===normalize(allParts[i].answer)); setResults(res); if(res.every(Boolean)) setTimeout(()=>onComplete(),1200); };
       const retry = () => { setResults(null); setAnswers(Array(allParts.length).fill("")); };
       const allFilled = answers.every(a=>a.trim()!=="");
       const allOk = results && results.every(Boolean);
       return (
         <div>
-          <p style={{fontSize:15,color:"#555",marginBottom:16}}>Escribe el nombre de cada parte seg\u00FAn la pista.</p>
-          <h3 style={{color:"#E91E63",fontSize:16,marginBottom:8}}>\u2640 Aparato femenino</h3>
+          <p style={{fontSize:15,color:"#555",marginBottom:16}}>Escribe el nombre de cada parte según la pista.</p>
+          <h3 style={{color:"#E91E63",fontSize:16,marginBottom:8}}>♀ Aparato femenino</h3>
           {PARTS_FEM.map((p,i) => (
             <div key={i} style={{display:"flex",alignItems:"center",gap:8,marginBottom:10,padding:"8px 12px",borderRadius:10,backgroundColor:results?(results[i]?"#E8F5E9":"#FFEBEE"):"#F3E5F5"}}>
               <span style={{fontSize:14,flex:1,fontWeight:500}}>{p.hint}:</span>
-              <input value={answers[i]} onChange={e=>{const n=[...answers];n[i]=e.target.value;setAnswers(n);}} disabled={!!results} placeholder="escribe aqu\u00ED"
+              <input value={answers[i]} onChange={e=>{const n=[...answers];n[i]=e.target.value;setAnswers(n);}} disabled={!!results} placeholder="escribe aquí"
                 style={{padding:"8px 12px",borderRadius:8,border:"2px solid #CE93D8",fontSize:14,fontWeight:600,width:130,outline:"none",textAlign:"center"}} />
-              {results&&results[i]&&<span>\u2705</span>}
-              {results&&!results[i]&&<span style={{fontSize:12,color:"#D32F2F"}}>\u2192 {allParts[i].answer}</span>}
+              {results&&results[i]&&<span>✅</span>}
+              {results&&!results[i]&&<span style={{fontSize:12,color:"#D32F2F"}}>→ {allParts[i].answer}</span>}
             </div>
           ))}
-          <h3 style={{color:"#1976D2",fontSize:16,marginTop:16,marginBottom:8}}>\u2642 Aparato masculino</h3>
+          <h3 style={{color:"#1976D2",fontSize:16,marginTop:16,marginBottom:8}}>♂ Aparato masculino</h3>
           {PARTS_MASC.map((p,j) => {
             const i=j+PARTS_FEM.length;
             return (
               <div key={i} style={{display:"flex",alignItems:"center",gap:8,marginBottom:10,padding:"8px 12px",borderRadius:10,backgroundColor:results?(results[i]?"#E8F5E9":"#FFEBEE"):"#F3E5F5"}}>
                 <span style={{fontSize:14,flex:1,fontWeight:500}}>{p.hint}:</span>
-                <input value={answers[i]} onChange={e=>{const n=[...answers];n[i]=e.target.value;setAnswers(n);}} disabled={!!results} placeholder="escribe aqu\u00ED"
+                <input value={answers[i]} onChange={e=>{const n=[...answers];n[i]=e.target.value;setAnswers(n);}} disabled={!!results} placeholder="escribe aquí"
                   style={{padding:"8px 12px",borderRadius:8,border:"2px solid #CE93D8",fontSize:14,fontWeight:600,width:130,outline:"none",textAlign:"center"}} />
-                {results&&results[i]&&<span>\u2705</span>}
-                {results&&!results[i]&&<span style={{fontSize:12,color:"#D32F2F"}}>\u2192 {allParts[i].answer}</span>}
+                {results&&results[i]&&<span>✅</span>}
+                {results&&!results[i]&&<span style={{fontSize:12,color:"#D32F2F"}}>→ {allParts[i].answer}</span>}
               </div>
             );
           })}
           <div style={{marginTop:20,textAlign:"center"}}>
-            {!results && <button onClick={check} disabled={!allFilled} style={{padding:"12px 32px",fontSize:16,fontWeight:700,borderRadius:24,border:"none",backgroundColor:allFilled?"#7B1FA2":"#ccc",color:"#fff",cursor:allFilled?"pointer":"default",boxShadow:allFilled?"0 4px 12px rgba(123,31,162,0.4)":"none"}}>\u00A1Comprobar!</button>}
-            {results&&!allOk && <div><p style={{color:"#E65100",fontWeight:600,marginBottom:8}}>\u00A1F\u00EDjate en las correcciones!</p><button onClick={retry} style={{padding:"12px 32px",fontSize:16,fontWeight:700,borderRadius:24,border:"none",backgroundColor:"#7B1FA2",color:"#fff",cursor:"pointer"}}>Reintentar</button></div>}
-            {allOk && <p style={{color:"#388E3C",fontWeight:700,fontSize:20}}>\uD83C\uDF89 \u00A1Incre\u00EDble! \u00A1Todo perfecto!</p>}
+            {!results && <button onClick={check} disabled={!allFilled} style={{padding:"12px 32px",fontSize:16,fontWeight:700,borderRadius:24,border:"none",backgroundColor:allFilled?"#7B1FA2":"#ccc",color:"#fff",cursor:allFilled?"pointer":"default",boxShadow:allFilled?"0 4px 12px rgba(123,31,162,0.4)":"none"}}>¡Comprobar!</button>}
+            {results&&!allOk && <div><p style={{color:"#E65100",fontWeight:600,marginBottom:8}}>¡Fíjate en las correcciones!</p><button onClick={retry} style={{padding:"12px 32px",fontSize:16,fontWeight:700,borderRadius:24,border:"none",backgroundColor:"#7B1FA2",color:"#fff",cursor:"pointer"}}>Reintentar</button></div>}
+            {allOk && <p style={{color:"#388E3C",fontWeight:700,fontSize:20}}>🎉 ¡Increíble! ¡Todo perfecto!</p>}
           </div>
         </div>
       );
@@ -302,7 +302,7 @@
               <div key={i} style={{padding:"12px 16px",borderRadius:12,backgroundColor:"#FFF3E0"}}>
                 <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:8}}>
                   <p style={{fontSize:14,fontWeight:600,flex:1}}>{sq.q}</p>
-                  <button onClick={()=>{const n=[...showHints];n[i]=!n[i];setShowHints(n);}} style={{background:"none",border:"none",fontSize:22,cursor:"pointer",padding:4}}>\uD83D\uDCA1</button>
+                  <button onClick={()=>{const n=[...showHints];n[i]=!n[i];setShowHints(n);}} style={{background:"none",border:"none",fontSize:22,cursor:"pointer",padding:4}}>💡</button>
                 </div>
                 {showHints[i] && <p style={{fontSize:12,color:"#E65100",fontStyle:"italic",marginBottom:6,padding:"4px 8px",backgroundColor:"#FFF9C4",borderRadius:6}}>Pista: {sq.hint}</p>}
                 <textarea value={answers[i]} onChange={e=>{const n=[...answers];n[i]=e.target.value;setAnswers(n);}} disabled={done} rows={2} placeholder="Escribe tu respuesta..."
@@ -311,8 +311,8 @@
             ))}
           </div>
           <div style={{marginTop:20,textAlign:"center"}}>
-            {!done && <button onClick={finish} disabled={!allFilled} style={{padding:"12px 32px",fontSize:16,fontWeight:700,borderRadius:24,border:"none",backgroundColor:allFilled?"#E65100":"#ccc",color:"#fff",cursor:allFilled?"pointer":"default",boxShadow:allFilled?"0 4px 12px rgba(230,81,0,0.4)":"none"}}>\u00A1He terminado!</button>}
-            {done && <p style={{color:"#388E3C",fontWeight:700,fontSize:20}}>\uD83C\uDF89 \u00A1Genial! \u00A1Has completado todo!</p>}
+            {!done && <button onClick={finish} disabled={!allFilled} style={{padding:"12px 32px",fontSize:16,fontWeight:700,borderRadius:24,border:"none",backgroundColor:allFilled?"#E65100":"#ccc",color:"#fff",cursor:allFilled?"pointer":"default",boxShadow:allFilled?"0 4px 12px rgba(230,81,0,0.4)":"none"}}>¡He terminado!</button>}
+            {done && <p style={{color:"#388E3C",fontWeight:700,fontSize:20}}>🎉 ¡Genial! ¡Has completado todo!</p>}
           </div>
         </div>
       );
@@ -336,13 +336,13 @@
           <div style={{minHeight:"100vh",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",background:"linear-gradient(135deg,#E8F5E9 0%,#FFF9C4 50%,#F8BBD0 100%)",padding:24}}>
             <Confetti show={true} />
             <div style={{textAlign:"center",animation:"popIn 0.6s ease-out"}}>
-              <div style={{fontSize:80,marginBottom:16}}>\uD83C\uDFC6</div>
-              <h1 style={{fontSize:28,color:"#388E3C",marginBottom:12}}>\u00A1ENHORABUENA, VICTORIA!</h1>
-              <p style={{fontSize:18,color:"#555",maxWidth:320,lineHeight:1.6,margin:"0 auto"}}> Has completado {completed.size} de {EXERCISES.length} ejercicios. \u00A1Est\u00E1s preparada para el examen del lunes!</p>
+              <div style={{fontSize:80,marginBottom:16}}>🏆</div>
+              <h1 style={{fontSize:28,color:"#388E3C",marginBottom:12}}>¡ENHORABUENA, VICTORIA!</h1>
+              <p style={{fontSize:18,color:"#555",maxWidth:320,lineHeight:1.6,margin:"0 auto"}}> Has completado {completed.size} de {EXERCISES.length} ejercicios. ¡Estás preparada para el examen del lunes!</p>
               <div style={{display:"flex",justifyContent:"center",gap:8,marginTop:20}}>
                 {EXERCISES.map(ex => (
                   <div key={ex.id} style={{width:40,height:40,borderRadius:"50%",backgroundColor:completed.has(ex.id)?"#66BB6A":"#e0e0e0",display:"flex",alignItems:"center",justifyContent:"center",fontSize:18}}>
-                    {completed.has(ex.id)?"\u2B50":ex.icon}
+                    {completed.has(ex.id)?"⭐":ex.icon}
                   </div>
                 ))}
               </div>
@@ -358,22 +358,22 @@
           <div style={{minHeight:"100vh",background:"linear-gradient(180deg,#E8F5E9 0%,#FFFDE7 100%)",padding:"24px 16px"}}>
             <div style={{maxWidth:440,margin:"0 auto"}}>
               <div style={{textAlign:"center",marginBottom:24}}>
-                <div style={{fontSize:48,marginBottom:8}}>\uD83E\uDDEC</div>
+                <div style={{fontSize:48,marginBottom:8}}>🧬</div>
                 <h1 style={{fontSize:24,fontWeight:800,color:"#2E7D32",marginBottom:4}}>El Aparato Reproductor</h1>
-                <p style={{fontSize:15,color:"#666"}}>Tema 7 \u00B7 Ficha interactiva</p>
+                <p style={{fontSize:15,color:"#666"}}>Tema 7 · Ficha interactiva</p>
               </div>
               <div style={{display:"flex",flexDirection:"column",gap:12}}>
                 {EXERCISES.map((ex,i) => (
                   <button key={ex.id} onClick={()=>{setCurrentEx(i);setScreen("exercise");}}
                     style={{display:"flex",alignItems:"center",gap:14,padding:"16px 18px",borderRadius:16,border:"none",backgroundColor:ex.bg,cursor:"pointer",boxShadow:"0 3px 8px rgba(0,0,0,0.08)",textAlign:"left"}}>
                     <div style={{width:48,height:48,borderRadius:"50%",backgroundColor:"#fff",display:"flex",alignItems:"center",justifyContent:"center",fontSize:24,boxShadow:"0 2px 6px rgba(0,0,0,0.1)"}}>
-                      {completed.has(ex.id)?"\u2B50":ex.icon}
+                      {completed.has(ex.id)?"⭐":ex.icon}
                     </div>
                     <div style={{flex:1}}>
                       <p style={{fontSize:16,fontWeight:700,color:ex.color}}>{ex.title}</p>
-                      <p style={{fontSize:12,color:"#888",marginTop:2}}>{completed.has(ex.id)?"\u00A1Completado!":`Ejercicio ${i+1} de ${EXERCISES.length}`}</p>
+                      <p style={{fontSize:12,color:"#888",marginTop:2}}>{completed.has(ex.id)?"¡Completado!":`Ejercicio ${i+1} de ${EXERCISES.length}`}</p>
                     </div>
-                    <div style={{fontSize:20,color:ex.color}}>\u2192</div>
+                    <div style={{fontSize:20,color:ex.color}}>→</div>
                   </button>
                 ))}
               </div>
@@ -396,7 +396,7 @@
           <Confetti show={showConfetti} />
           <div style={{maxWidth:480,margin:"0 auto"}}>
             <div style={{display:"flex",alignItems:"center",gap:12,marginBottom:16}}>
-              <button onClick={()=>setScreen("menu")} style={{background:"none",border:"none",fontSize:24,cursor:"pointer",padding:4}}>\u2190</button>
+              <button onClick={()=>setScreen("menu")} style={{background:"none",border:"none",fontSize:24,cursor:"pointer",padding:4}}>←</button>
               <div style={{flex:1}}><ProgressBar current={currentEx+1} total={EXERCISES.length} color={ex.color} /></div>
               <span style={{fontSize:13,color:"#888",fontWeight:600}}>{currentEx+1}/{EXERCISES.length}</span>
             </div>
@@ -414,7 +414,7 @@
             {isCompleted && (
               <div style={{marginTop:20,textAlign:"center"}}>
                 <button onClick={goNext} style={{padding:"14px 40px",fontSize:16,fontWeight:700,borderRadius:24,border:"none",backgroundColor:"#388E3C",color:"#fff",cursor:"pointer",boxShadow:"0 4px 12px rgba(56,142,60,0.4)",animation:"pulseBtn 1.5s infinite"}}>
-                  {currentEx<EXERCISES.length-1?"Siguiente ejercicio \u2192":"\u00A1Ver resultado final! \uD83C\uDFC6"}
+                  {currentEx<EXERCISES.length-1?"Siguiente ejercicio →":"¡Ver resultado final! 🏆"}
                 </button>
                 <style>{`@keyframes pulseBtn { 0%,100%{transform:scale(1)} 50%{transform:scale(1.05)} }`}</style>
               </div>
